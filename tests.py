@@ -42,8 +42,8 @@ class TestBooksCollector:
 
     def test_get_books_for_children(self):
         collector = BooksCollector()
-        collector.add_new_book("Книга Ужасов")
-        collector.set_book_genre("Книга Ужасов", "Ужасы")
+        collector.add_new_book("Ужасно")
+        collector.set_book_genre("Ужасно", "Ужасы")
         collector.add_new_book("Детская Книга")
         collector.set_book_genre("Детская Книга", "Фантастика")
 

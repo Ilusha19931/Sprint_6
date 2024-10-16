@@ -36,8 +36,8 @@ class TestBooksCollector:
         collector.add_new_book("Приключенческая книга")
         collector.set_book_genre("Приключенческая книга", "Комедии")
 
-        assert collector.get_books_with_specific_genre("Ужасы") == ["Книга Ужасов"]
-        assert collector.get_books_with_specific_genre("Комедии") == ["Приключенческая Книга"]
+        assert collector.get_books_with_specific_genre("Ужасы") == ["Ужасная книга"]
+        assert collector.get_books_with_specific_genre("Комедии") == ["Приключенческая книга"]
         assert collector.get_books_with_specific_genre("Фантастика") == []
 
     def test_get_books_for_children(self):
@@ -68,4 +68,4 @@ class TestBooksCollector:
         collector.add_book_in_favorites("Тестовая Книга")
         collector.add_new_book("Тестовая Книга2")
         collector.add_book_in_favorites("Тестовая Книга2")
-        assert collector.get_list_of_favorites_books() == ["Тестовая Книга"]
+        assert collector.get_list_of_favorites_books() == ["Тестовая Книга","Тестовая Книга2"]

@@ -1,29 +1,26 @@
+from operator import index
+from tkinter.messagebox import QUESTION
+
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support.expected_conditions import visibility_of_element_located
+from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
-
-class MainPageQuestion:
-
-    def __init__(self, driver):
-        self.driver = driver
-
-    def scroll_to_last_question(self):
-
-        button_with_question = (By.CLASS_NAME, "accordion__heading")
-        element = self.driver.find_elements(*button_with_question)[7]
-        self.driver.execute_script("arguments[0].scrollIntoView();", element)
-
-    def click_question_form(self, index):
-
-        button_with_question = (By.CLASS_NAME, "accordion__heading")
-        self.driver.find_elements(*button_with_question)[index].click()
+from locators.locators_main_page_question import MainPageLocators
+from pages.base_page import BasePage
 
 
-    def text_on_assert(self, index):
-        text_inside_the_button = (By.XPATH, ".//p")
-        text = self.driver.find_elements(*text_inside_the_button)[index]
-        return text.text
+class MainPageQuestion(BasePage):
+
+    def get_text_assert(self, num):
+        locator_question_to_click_formated = self.format_locators(MainPageLocators.BUTTON_WITH_QUESTION, num)
+        locator_question_text_formated = self.format_locators(MainPageLocators.QUESTION_TEXT, num)
+        self.skroll_to_element(MainPageLocators.QUESTION_LOCKATOR_TO_SCROLL)
+        self.click_on_element(locator_question_to_click_formated)
+        return self.get_text(locator_question_text_formated)
 
 
 

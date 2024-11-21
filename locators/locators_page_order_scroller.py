@@ -20,6 +20,7 @@ class PageOrderLocators:
     BUTTON_HEADER_SCOOTER = (By.XPATH, "//img[@alt='Scooter']")
     BUTTON_HEADER_DZEN = (By.XPATH, "//img[@alt='Yandex']")
     BUTTON_LOOK_AT_STATUS = (By.XPATH, "//*[text() = 'Посмотреть статус']")
+    SEARCH_YANDEX_FIELD = (By.XPATH, "//a[contains(@class, 'dzen-layout--desktop-base-header__logo')]")
 
     @staticmethod
     def metro_locator(metro):
